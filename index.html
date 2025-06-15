@@ -1,9 +1,39 @@
 <html>
 <head>
-    <title>Gyakorlas</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+  <title>Listening</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-    
+  <center>
+    <br>
+    <h1>Listen to music!</h1>
+    <audio id="player" src="https://listen.mashtoolz.xyz" preload="none" autoplay="true"></audio>
+    <div> 
+      <button id="play" onclick="document.getElementById('player').play()">Play</button> 
+      <button id="pause" onclick="document.getElementById('player').pause()">Pause</button> 
+      <button id="volknob" onclick="document.getElementById('player').volume += 0.1">Vol +</button> 
+      <button id="volknob2" onclick="document.getElementById('player').volume -= 0.1">Vol -</button> 
+    </div>
+    <p ID="vol"></p>
+    <p ID="status">playing</p>
+    <script language="JScript">
+      document.getElementById("vol").innerHTML = document.getElementById("player").volume*100 + "%";
+      document.getElementById("volknob").addEventListener("click", function() {
+        document.getElementById("vol").innerHTML = document.getElementById("player").volume*100 + "%";
+      });
+      document.getElementById("volknob2").addEventListener("click", function() {
+        document.getElementById("vol").innerHTML = document.getElementById("player").volume*100 + "%";
+      });
+      document.getElementById("player").addEventListener("ended", function() {
+        location.reload();
+      });
+      document.getElementById("play").addEventListener("click", function() {
+        document.getElementById("status").innerHTML = "playing";
+      });
+      document.getElementById("pause").addEventListener("click", function() {
+        document.getElementById("status").innerHTML = "paused";
+      });
+    </script>
+  </center>
 </body>
 </html>
